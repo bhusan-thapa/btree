@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Newsletter Sign Up Form</title>
+</head>
+<body>
+  <div class="form-style-5">
+   <input type='hidden' id='client_token' value='{{client_token}}'>
+  
+  <h3>{{message}}</h3>
+<form id="checkout" method="post" action="/payment">
+  <div id="payment-form">
+     <input type='hidden' name='amount' value='{{amount}}'> 
+  </div>
+  <input type="submit" value="Pay ${{amount}}">
+</form>
+
+<script src="https://js.braintreegateway.com/v2/braintree.js"></script>
+<script>
+// We generated a client token for you so you can test out this code
+// immediately. In a production-ready integration, you will need to
+// generate a client token on your server (see section below).
+
+var clientToken = document.getElementById('client_token').value;
+
+braintree.setup(clientToken, "dropin", {
+  container: "payment-form"
+});
+
+
+
+
+</script>
+</div>
+
+</body>
+</html>
